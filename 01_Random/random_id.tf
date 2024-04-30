@@ -9,3 +9,4 @@ resource "random_id" "rng" {
 output "output_random_id_id" {
   value = random_id.rng.id
 }
+

@@ -22,3 +22,71 @@ Here, we are using a hard coded string "My Value", but in real case scenario thi
 2. Archive Provider
 
 
+
+## 3. Understanding terraform count, for_each and for loop
+When working with "collection variables" in Terrafrom, you must understand "loops with count," "loops with for each," and "for loop." If you don't, it will be very hard to go through collections like list, map, and set.
+
+### Loops with count
+#### Iterate List using count
+As the name suggests we need to use count but to use the count first we need to declare collections inside our terraform file.
+
+Let's create a collection variable of type list(string) -
+
+        variable "user_names" {
+        description = "IAM usernames"
+        type        = list(string)
+        default     = ["user1", "user2", "user3"]
+        }
+
+Here is the pictorial representation of the above list variable -
+
+![alt text](image.png)
+
+In the above collection, we have created a list of type string which contains usernames and these usernames we are going to use for creating aws_iam_user.
+
+The code snippet shows how we are going to iterate over the list(string) -  
+
+        resource "aws_iam_user" "example" {
+        count = length(var.user_names)
+        name  = var.user_names[count.index]
+        }
+
+![alt text](image-1.png)
+
+Here is the complete terraform file -
+
+        provider "aws" {
+        region     = "eu-central-1"
+        access_key = "XXXXXXXXXXXXXXXX"
+        secret_key = "XXXXXXXXXXXXXXXX"
+        }
+        resource "aws_instance" "ec2_example" {
+
+        ami           = "ami-0767046d1677be5a0"
+        instance_type =  "t2.micro"
+        count = 1
+
+        tags = {
+                Name = "Terraform EC2"
+        }
+
+        }
+
+        resource "aws_iam_user" "example" {
+        count = length(var.user_names)
+        name  = var.user_names[count.index]
+        }
+
+        variable "user_names" {
+        description = "IAM usernames"
+        type        = list(string)
+        default     = ["user1", "user2", "user3"]
+        }
+
+Once you apply this terraform configuration using the terraform apply command, it will do the following on aws-
+
+Create one ec2 instance
+Create three IAM users - user1, user2, user3
+
+
+

@@ -1,0 +1,15 @@
+{
+    "capitals": {
+        "TN": "Nashville",
+        "TN_E": "TmFzaHZpbGxl",
+        "MP": "Bhopal",
+        "MAH": "Mumbai",
+        "UP" : "Kanpur",
+        "NY": "New York City"
+    },
+    "config" : {
+        "db":"Oracle",
+        "mapping" : "mapping.json",
+        "rules" : "some sql codes"
+    }
+}
