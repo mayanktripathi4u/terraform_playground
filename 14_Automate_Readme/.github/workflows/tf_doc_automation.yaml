@@ -1,0 +1,24 @@
+name: Generate Terraform Docs 
+on: 
+  push:
+    branches: [ "master" ]
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest # To run the workflow on ubuntu runner
+
+    steps:
+      - uses: actions/checkout@v3 # Checkout the Repo Code.
+
+      - name: Install Terraform Code
+      - uses: terraform-docs/gh-actions@main # Action to generate the TF Doc.
+      with:
+        working_dir: . # uses the current directory
+        output-file: README.md # Update the README.md file with generated doc.
+        output-method: inject # Inject the doc into the README
+        git-push: "true"
+
+
+# Make sure to grant permissiions.
+# Path to navigate: 
+  # GitHub Browser > Settings > Actions > General > Workflow Permissions > Read and Write Permissions.
