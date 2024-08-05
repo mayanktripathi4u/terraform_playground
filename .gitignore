@@ -36,3 +36,5 @@ terraform.rc
 # Custom File for ignoring
 .hcl
 .txt
+*.DS_Store
+/*.DS_Store
