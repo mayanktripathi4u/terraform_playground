@@ -21,4 +21,15 @@
 ## Coding
 
 
+After EC2 Instance is Up and Running, take the public IP and run in browser, should able to see Jenkins page.
 
+# Configure Jenkins on EC2
+Next is to Configure Jenkins, SSH into the EC2 Instance.
+Run the command to get the pass-code: 
+```
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+Past the Pass-Code in the browser.
+Go with the Suggested Plugins.
+
+Provide details as asked.

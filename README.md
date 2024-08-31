@@ -88,5 +88,11 @@ Once you apply this terraform configuration using the terraform apply command, i
 Create one ec2 instance
 Create three IAM users - user1, user2, user3
 
+# Terraform Built-in Functions for Loops and If-statements
+* count
+* for_each
+* for expressions
 
 
+# References
+[For TF Project structure](https://www.youtube.com/watch?v=nMVXs8VnrF4&list=PLiMWaCMwGJXmJdmfJjG3aK1IkU7oWvxIj&index=5) 
