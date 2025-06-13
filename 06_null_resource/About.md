@@ -7,3 +7,4 @@ One particular use case for the `null_resource` in Terraform is to trigger exter
 In here as an example will see how to print “Hello World” to the terminal every time the ID variable is changed.
 Same can be used for any resource.
 
+In Terraform, the 
